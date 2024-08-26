@@ -81,7 +81,7 @@ if __name__ == "__main__":
         f.write(content)
 
     xml_file = 'hotelz_listings.xml'
-    csv_file = 'hostel_names.csv'
+    csv_file = 'hostel_hop_hostel_names.csv'
     output_file = 'matched_urls.txt'
     
     main(xml_file, csv_file, output_file)

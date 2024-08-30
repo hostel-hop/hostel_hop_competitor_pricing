@@ -1,0 +1,27 @@
+{
+    "property_hostelz_url": "https://www.hostelz.com/hostel/8-Die-Fabrik",
+    "property_name": "Die Fabrik",
+    "hostel_hop_property_id": "id",
+    "sources": [
+        {
+            "slug": "hostel-world",
+            "rooms": [
+                {
+                    "name": "6 Bed Female Dorm",
+                    "hostel_hop_room_id": "roomid",
+                    "prices": [
+                        {
+                            "date": "2024-08-14",
+                            "best_price": "25.54"
+                        },
+                        {
+                            "date": "2024-08-15",
+                            "best_price": "25.54"
+                        },
+                        {"...":"..."}
+                    ]
+                }
+            ]
+        }
+    ]
+}

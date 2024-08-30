@@ -1,12 +1,9 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
+# items.py
 
 import scrapy
 
-
-class HostelHopCompetitorPricingItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class HostelItem(scrapy.Item):
+    property_hostelz_url = scrapy.Field()
+    property_name = scrapy.Field()
+    hostel_hop_property_id = scrapy.Field()
+    sources = scrapy.Field()

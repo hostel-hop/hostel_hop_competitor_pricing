@@ -106,6 +106,9 @@ DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 SPLASH_URL = 'http://localhost:8050'
 
+
+
+
 ITEM_PIPELINES = {
     'hostel_hop_competitor_pricing.pipelines.JsonWriterPipeline': 300,  
 }

@@ -1,0 +1,19 @@
+Create .venv
+python3 -m venv ./.venv
+
+
+Start pyton
+source .venv/bin/activate
+
+Integrate requirements (in venv)
+pip install -r requirements.txt
+
+
+Start main - does nothing
+python3 man.py
+
+Start Spider
+scrapy crawl hostel_spider      
+
+Start Selenium Parser
+python3 sel_parser.py

@@ -2,9 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-
-import json
-import re
 import time
 
 class ScriptAnalyzer:
@@ -13,17 +10,18 @@ class ScriptAnalyzer:
         self.driver = None
         self.setup_driver()
 
-    def setup_driver(self): 
-        service = Service(ChromeDriverManager().install())
+    def setup_driver(self):
+        service = Service(executable_path=ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service)
 
     def analyze_scripts(self):
         self.driver.get(self.url)
-        time.sleep(5) 
+        time.sleep(10)  
+
         scripts = self.driver.find_elements(By.TAG_NAME, 'script')
         for i, script_element in enumerate(scripts):
             script_content = script_element.get_attribute('innerHTML')
-            print(f"Script {i} content: {script_content[:500]}") 
+            print(f"Script {i} content: {script_content[:500]}")  
             
             if script_content:
                 try:
@@ -35,7 +33,10 @@ class ScriptAnalyzer:
                     print(f"Error executing script {i}: {e}")
 
     def extract_price_info(self):
-        price_elements = self.driver.find_elements(By.CSS_SELECTOR, '.price')  
+        
+        time.sleep(5) 
+        
+        price_elements = self.driver.find_elements(By.CSS_SELECTOR, 'span.cl-text.font-weight-600')
         prices = [price.text for price in price_elements]
         print("Extracted prices:", prices)
 
@@ -50,8 +51,6 @@ class ScriptAnalyzer:
         finally:
             self.close_driver()
 
-#=======================================================
-                    
 def read_urls(file_path):
     with open(file_path, 'r') as file:
         urls = file.read().splitlines()

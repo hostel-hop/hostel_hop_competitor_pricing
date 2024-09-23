@@ -7,6 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+# for Chrome driver 
+from shutil import which
+from selenium.webdriver.chrome.service import Service
+
 BOT_NAME = "hostel_hop_competitor_pricing"
 
 SPIDER_MODULES = ["hostel_hop_competitor_pricing.spiders"]
@@ -86,16 +90,29 @@ AUTOTHROTTLE_DEBUG = False
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
 
+DOWNLOAD_HANDLERS = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+}
+
 # Set settings whose default value is deprecated to a future-proof value
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+  
+SELENIUM_DRIVER_NAME = 'chrome'
+SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
+SELENIUM_DRIVER_SERVICE = Service(executable_path=which('chromedriver'))
+
+SELENIUM_DRIVER_ARGUMENTS=['--headless']  
 
 #------------------
 DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+    'scrapy_selenium.SeleniumMiddleware': 800
 }
 
 SPIDER_MIDDLEWARES = {
@@ -107,8 +124,11 @@ HTTPCACHE_STORAGE = 'scrapy_splash.SplashAwareFSCacheStorage'
 SPLASH_URL = 'http://localhost:8050'
 
 
-
-
 ITEM_PIPELINES = {
     'hostel_hop_competitor_pricing.pipelines.JsonWriterPipeline': 300,  
+}
+
+# Playwright settings
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    "headless": True,  # Set to False if you want to see the browser window
 }

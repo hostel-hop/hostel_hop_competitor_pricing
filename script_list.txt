@@ -1,34 +1,32 @@
 Script 0 content: 
 Script 1 content: 
 Script 2 content: 
-Script 3 content: {"@context":"https:\/\/schema.org","@type":"Hostel","name":"Sunflower Hostel","url":"https:\/\/www.hostelz.com\/hostel\/9-Sunflower-Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/thumbnails\/13\/3903613.jpg","telephone":"+49 (30) 44044250","hasMap":"https:\/\/maps.google.com\/?q=52.509750,13.446020","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","streetAddress":"Helsingforser strasse 17","postalCode":"10243"},"aggregateRating":{"@t
-Error executing script 3: Message: javascript error: Unexpected token ':'
+Script 3 content: 
+Script 4 content: {"@context":"https:\/\/schema.org","@type":"Hostel","name":"Sunflower Hostel","url":"https:\/\/www.hostelz.com\/hostel\/9-Sunflower-Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/thumbnails\/13\/3903613.jpg","telephone":"+49 (30) 44044250","hasMap":"https:\/\/maps.google.com\/?q=52.509750,13.446020","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","streetAddress":"Helsingforser strasse 17","postalCode":"10243"},"aggregateRating":{"@t
+Error executing script 4: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
-Script 4 content: 
+Script 5 content: 
 		{
 		  "@context": "https://schema.org",
 		  "@type": "TravelAgency",
@@ -39,33 +37,30 @@ Script 4 content:
 		  "logo": "https://www.hostelz.com/images/hostelz-small.png",
 		  "image": "https://www.hostelz.com/images/hostelz-small.png",
 		  "description": "Compare the best hostels worldwide with Hostelz.com. We provide comprehensive hostel reviews, ratings, and booking services to help you find the perfect h
-Error executing script 4: Message: javascript error: Unexpected token ':'
+Error executing script 5: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
-Script 5 content: 
+Script 6 content: 
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 
@@ -82,7 +77,7 @@ Script 5 content:
 			} else {
 				gtag('consent', 'default', {
 					'ad_storage':
-HTML after script 5: <html lang="en" class=""><head>
+HTML after script 6: <html lang="en" class=""><head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -92,8 +87,8 @@ HTML after script 5: <html lang="en" class=""><head>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
 	<![endif]-->
 	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
-Script 6 content: 
-Script 7 content:  window.dataLayer = window.dataLayer || [];
+Script 7 content: 
+Script 8 content:  window.dataLayer = window.dataLayer || [];
 
             function gtag() {
                 dataLayer.push(arguments);
@@ -101,28 +96,6 @@ Script 7 content:  window.dataLayer = window.dataLayer || [];
 
             gtag('js', new Date());
             gtag('config', 'G-6ZD2688Z1E'); 
-HTML after script 7: <html lang="en" class=""><head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
-	<![endif]-->
-	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
-Script 8 content: 
-            (function (h, o, t, j, a, r) {
-                h.hj = h.hj || function () {
-                    (h.hj.q = h.hj.q || []).push(arguments)
-                };
-                h._hjSettings = {hjid: 1552232, hjsv: 6};
-                a = o.getElementsByTagName('head')[0];
-                r = o.createElement('script');
-                r.async = 1;
-                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window, document, 'ht
 HTML after script 8: <html lang="en" class=""><head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
@@ -134,7 +107,29 @@ HTML after script 8: <html lang="en" class=""><head>
 	<![endif]-->
 	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
 Script 9 content: 
-Script 10 content: (function (w, d, s, l, i) {
+            (function (h, o, t, j, a, r) {
+                h.hj = h.hj || function () {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                };
+                h._hjSettings = {hjid: 1552232, hjsv: 6};
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window, document, 'ht
+HTML after script 9: <html lang="en" class=""><head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
+Script 10 content: 
+Script 11 content: (function (w, d, s, l, i) {
                 w[l] = w[l] || [];
                 w[l].push({
                     'gtm.start':
@@ -146,25 +141,6 @@ Script 10 content: (function (w, d, s, l, i) {
                 j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
                 f.parent
-HTML after script 10: <html lang="en" class=""><head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
-	<![endif]-->
-	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
-Script 11 content: 
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.
 HTML after script 11: <html lang="en" class=""><head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
@@ -176,6 +152,24 @@ HTML after script 11: <html lang="en" class=""><head>
 	<![endif]-->
 	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
 Script 12 content: 
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.
+HTML after script 12: <html lang="en" class=""><head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
 Script 13 content: 
 Script 14 content: 
       !function() {
@@ -215,271 +209,241 @@ Script 16 content: {"@context":"https:\/\/schema.org","@type":"Review","itemRevi
 Error executing script 16: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 17 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":2,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 17: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 18 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":4,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 18: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 19 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":5,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 19: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 20 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":4,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 20: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 21 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":4,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 21: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 22 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":5,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 22: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 23 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":4,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 23: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 24 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":5,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 24: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 25 content: {"@context":"https:\/\/schema.org","@type":"Review","itemReviewed":{"@type":"Hostel","image":"https:\/\/www.hostelz.com\/pics\/imported\/listings\/big\/13\/3903613.jpg","name":"Sunflower Hostel","priceRange":"€€","address":{"@type":"PostalAddress","addressCountry":"Germany","addressLocality":"Berlin","postalCode":"10243","streetAddress":"Helsingforser strasse 17"},"telephone":"+49 (30) 44044250"},"reviewRating":{"@type":"Rating","ratingValue":3,"bestRating":5,"worstRating":1},"author":{"@type":"
 Error executing script 25: Message: javascript error: Unexpected token ':'
   (Session info: chrome=128.0.6613.120)
 Stacktrace:
-0   chromedriver                        0x0000000106710248 chromedriver + 5096008
-1   chromedriver                        0x0000000106707a7a chromedriver + 5061242
-2   chromedriver                        0x0000000106292fd0 chromedriver + 389072
-3   chromedriver                        0x0000000106299189 chromedriver + 414089
-4   chromedriver                        0x000000010629ae09 chromedriver + 421385
-5   chromedriver                        0x00000001063221c4 chromedriver + 975300
-6   chromedriver                        0x0000000106303ef2 chromedriver + 851698
-7   chromedriver                        0x0000000106321250 chromedriver + 971344
-8   chromedriver                        0x0000000106303c93 chromedriver + 851091
-9   chromedriver                        0x00000001062d2c79 chromedriver + 650361
-10  chromedriver                        0x00000001062d349e chromedriver + 652446
-11  chromedriver                        0x00000001066d2fc0 chromedriver + 4845504
-12  chromedriver                        0x00000001066d7ed8 chromedriver + 4865752
-13  chromedriver                        0x00000001066d85a5 chromedriver + 4867493
-14  chromedriver                        0x00000001066b5bf9 chromedriver + 4725753
-15  chromedriver                        0x00000001066d8899 chromedriver + 4868249
-16  chromedriver                        0x00000001066a7b14 chromedriver + 4668180
-17  chromedriver                        0x00000001066f7d78 chromedriver + 4996472
-18  chromedriver                        0x00000001066f7f77 chromedriver + 4996983
-19  chromedriver                        0x000000010670767e chromedriver + 5060222
-20  libsystem_pthread.dylib             0x00007ff804bbb18b _pthread_start + 99
-21  libsystem_pthread.dylib             0x00007ff804bb6ae3 thread_start + 15
+0   chromedriver                        0x000000010336f998 cxxbridge1$str$ptr + 1887096
+1   chromedriver                        0x0000000103367e00 cxxbridge1$str$ptr + 1855456
+2   chromedriver                        0x0000000102f6cbe0 cxxbridge1$string$len + 89508
+3   chromedriver                        0x0000000102f71c90 cxxbridge1$string$len + 110164
+4   chromedriver                        0x0000000102f73680 cxxbridge1$string$len + 116804
+5   chromedriver                        0x0000000102feb0cc cxxbridge1$string$len + 606864
+6   chromedriver                        0x0000000102fea4a4 cxxbridge1$string$len + 603752
+7   chromedriver                        0x0000000102fa5a08 cxxbridge1$string$len + 322508
+8   chromedriver                        0x0000000102fa666c cxxbridge1$string$len + 325680
+9   chromedriver                        0x0000000103336058 cxxbridge1$str$ptr + 1651256
+10  chromedriver                        0x000000010333a98c cxxbridge1$str$ptr + 1669996
+11  chromedriver                        0x000000010331b1ec cxxbridge1$str$ptr + 1541068
+12  chromedriver                        0x000000010333b25c cxxbridge1$str$ptr + 1672252
+13  chromedriver                        0x000000010330c800 cxxbridge1$str$ptr + 1481184
+14  chromedriver                        0x00000001033590f8 cxxbridge1$str$ptr + 1794776
+15  chromedriver                        0x0000000103359274 cxxbridge1$str$ptr + 1795156
+16  chromedriver                        0x0000000103367a9c cxxbridge1$str$ptr + 1854588
+17  libsystem_pthread.dylib             0x000000018dbc6034 _pthread_start + 136
+18  libsystem_pthread.dylib             0x000000018dbc0e3c thread_start + 8
 
 Script 26 content: 
 Script 27 content: 
@@ -608,7 +572,7 @@ Script 43 content:
         initializeListingDisplayPage(
                 9,
                 true,
-                1725575718
+                1725959087
         );
     });
 
@@ -637,4 +601,4 @@ HTML after script 44: <html lang="en" class=""><head>
 	<link rel="stylesheet" href="/vendor/pannellum.css?2.240416"><link rel="stylesheet" href="/vendor/fancybo
 Script 45 content: 
 Script 46 content: 
-Extracted prices: ['€84.94', '€94.37', '€93.66', '€104.06', 'Address', 'Distance to city center:', 'Phone Number:']
+Extracted prices: ['€40.22', '€44.69', '€41.06', '€45.62', 'Address', 'Distance to city center:', 'Phone Number:']

@@ -1,0 +1,13 @@
+setup.py
+hostel_hop_competitor_pricing/__init__.py
+hostel_hop_competitor_pricing/items.py
+hostel_hop_competitor_pricing/middlewares.py
+hostel_hop_competitor_pricing/pipelines.py
+hostel_hop_competitor_pricing/settings.py
+hostel_hop_competitor_pricing/spiders/__init__.py
+hostel_hop_competitor_pricing/spiders/hostel_spider.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt

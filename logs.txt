@@ -1,0 +1,195 @@
+Login succeeded
+Building an image:
+Step 1/12 : FROM scrapinghub/scrapinghub-stack-scrapy:2.0
+# Executing 5 build trigger
+s
+ ---> Using cache
+ ---> Using cache
+ ---> Using cache
+ ---> Using cache
+ ---> Using cache
+ ---> 1081e74187d0
+Step 2/12 : ENV PYTHONUSERBASE=/app/python
+ ---> Using cache
+ ---> 0220dd2ff7e8
+Step 3/12 : ADD eggbased-entrypoint /usr/local/sbin/
+ ---> Using cache
+ ---> d121abd384a2
+Step 4/12 : ADD run-pipcheck /usr/local/bin/
+ ---> Using cache
+ ---> 8cda55c1cd51
+Step 5/12 : RUN chmod +x /usr/local/bin/run-pipcheck
+ ---> Using cache
+ ---> c577b3daff2f
+Step 6/12 : RUN chmod +x /usr/local/sbin/eggbased-entrypoint &&     ln -sf /usr/local/sbin/eggbased-entrypoint /usr/local/sbin/start-crawl &&     ln -sf /usr/local/sbin/eggbased-entrypoint /usr/local/sbin/scrapy-list &&     ln -sf /usr/local/sbin/eggbased-entrypoint /usr/local/sbin/shub-image-info &&     ln -sf /usr/local/sbin/eggbased-entrypoint /usr/local/sbin/run-pipcheck
+ ---> Using cache
+ ---> 11e9c78a7023
+Step 7/12 : ADD requirements.txt /app/requirements.txt
+ ---> a0c03d311a74
+Step 8/12 : RUN mkdir /app/python && chown nobody:nogroup /app/python
+ ---> Running in b62b79f12dcb
+ ---> Removed intermediate container b62b79f12dcb
+ ---> ae94cc827e61
+Step 9/12 : RUN sudo -u nobody -E PYTHONUSERBASE=$PYTHONUSERBASE -E PIP_NO_CACHE_DIR=0     pip install --user --no-cache-dir -r /app/requirements.txt
+ ---> Running in 929588ccc312
+Collecting scrapy>=2.5.0
+  Downloading Scrapy-2.11.2-py2.py3-none-any.whl (290 kB)
+Collecting selenium>=4.1.0
+  Downloading selenium-4.25.0-py3-none-any.whl (9.7 MB)
+Collecting webdriver-manager>=3.5.2
+  Downloading webdriver_manager-4.0.2-py2.py3-none-any.whl (27 kB)
+Collecting scrapy-playwright>=0.0.41
+  Downloading scrapy_playwright-0.0.41-py3-none-any.whl (26 kB)
+Collecting scrapy-selenium>=0.0.7
+  Downloading scrapy_selenium-0.0.7-py3-none-any.whl (6.7 kB)
+Collecting beautifulsoup4>=4.11.1
+  Downloading beautifulsoup4-4.12.3-py3-none-any.whl (147 kB)
+Collecting lxml>=4.9.3
+  Downloading lxml-5.3.0-cp38-cp38-manylinux_2_28_x86_64.whl (5.1 MB)
+Collecting google-cloud-storage>=2.18.2
+  Downloading google_cloud_storage-2.18.2-py2.py3-none-any.whl (130 kB)
+Collecting packaging
+  Downloading packaging-24.1-py3-none-any.whl (53 kB)
+Collecting tldextract
+  Downloading tldextract-5.1.2-py3-none-any.whl (97 kB)
+Requirement already satisfied: PyDispatcher>=2.0.5 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (2.0.5)
+Requirement already satisfied: protego>=0.1.15 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (0.1.16)
+Collecting cryptography>=36.0.0
+  Downloading cryptography-43.0.1-cp37-abi3-manylinux_2_28_x86_64.whl (4.0 MB)
+Collecting itemloaders>=1.0.1
+  Downloading itemloaders-1.3.1-py3-none-any.whl (12 kB)
+Requirement already satisfied: service-identity>=18.1.0 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (18.1.0)
+Collecting zope.interface>=5.1.0
+  Downloading zope.interface-7.0.3-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (257 kB)
+Requirement already satisfied: queuelib>=1.4.2 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (1.5.0)
+Requirement already satisfied: Twisted>=18.9.0 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (19.10.0)
+Requirement already satisfied: cssselect>=0.9.1 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (1.1.0)
+Collecting itemadapter>=0.1.0
+  Downloading itemadapter-0.9.0-py3-none-any.whl (11 kB)
+Collecting defusedxml>=0.7.1
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Collecting pyOpenSSL>=21.0.0
+  Downloading pyOpenSSL-24.2.1-py3-none-any.whl (58 kB)
+Requirement already satisfied: w3lib>=1.17.0 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (1.22.0)
+Requirement already satisfied: parsel>=1.5.0 in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (1.6.0)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.8/site-packages (from scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (56.2.0)
+Collecting trio-websocket~=0.9
+  Downloading trio_websocket-0.11.1-py3-none-any.whl (17 kB)
+Collecting urllib3[socks]<3,>=1.26
+  Downloading urllib3-2.2.3-py3-none-any.whl (126 kB)
+Collecting trio~=0.17
+  Downloading trio-0.26.2-py3-none-any.whl (475 kB)
+Collecting typing_extensions~=4.9
+  Downloading typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+Collecting certifi>=2021.10.8
+  Downloading certifi-2024.8.30-py3-none-any.whl (167 kB)
+Collecting websocket-client~=1.8
+  Downloading websocket_client-1.8.0-py3-none-any.whl (58 kB)
+Requirement already satisfied: requests in /usr/local/lib/python3.8/site-packages (from webdriver-manager>=3.5.2->-r /app/requirements.txt (line 3)) (2.23.0)
+Collecting python-dotenv
+  Downloading python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+Collecting playwright>=1.15
+  Downloading playwright-1.47.0-py3-none-manylinux1_x86_64.whl (38.1 MB)
+Collecting soupsieve>1.2
+  Downloading soupsieve-2.6-py3-none-any.whl (36 kB)
+Collecting google-auth<3.0dev,>=2.26.1
+  Downloading google_auth-2.35.0-py2.py3-none-any.whl (208 kB)
+Collecting google-cloud-core<3.0dev,>=2.3.0
+  Downloading google_cloud_core-2.4.1-py2.py3-none-any.whl (29 kB)
+Collecting google-crc32c<2.0dev,>=1.0
+  Downloading google_crc32c-1.5.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (32 kB)
+Collecting google-api-core<3.0.0dev,>=2.15.0
+  Downloading google_api_core-2.20.0-py3-none-any.whl (142 kB)
+Collecting google-resumable-media>=2.7.2
+  Downloading google_resumable_media-2.7.2-py2.py3-none-any.whl (81 kB)
+Requirement already satisfied: cffi>=1.12 in /usr/local/lib/python3.8/site-packages (from cryptography>=36.0.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (1.14.0)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.8/site-packages (from cffi>=1.12->cryptography>=36.0.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (2.20)
+Collecting protobuf!=3.20.0,!=3.20.1,!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<6.0.0.dev0,>=3.19.5
+  Downloading protobuf-5.28.2-cp38-abi3-manylinux2014_x86_64.whl (316 kB)
+Collecting proto-plus<2.0.0dev,>=1.22.3
+  Downloading proto_plus-1.24.0-py3-none-any.whl (50 kB)
+Collecting googleapis-common-protos<2.0.dev0,>=1.56.2
+  Downloading googleapis_common_protos-1.65.0-py2.py3-none-any.whl (220 kB)
+Requirement already satisfied: rsa<5,>=3.1.4 in /usr/local/lib/python3.8/site-packages (from google-auth<3.0dev,>=2.26.1->google-cloud-storage>=2.18.2->-r /app/requirements.txt (line 8)) (3.4.2)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /usr/local/lib/python3.8/site-packages (from google-auth<3.0dev,>=2.26.1->google-cloud-storage>=2.18.2->-r /app/requirements.txt (line 8)) (4.1.0)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /usr/local/lib/python3.8/site-packages (from google-auth<3.0dev,>=2.26.1->google-cloud-storage>=2.18.2->-r /app/requirements.txt (line 8)) (0.2.8)
+Requirement already satisfied: jmespath>=0.9.5 in /usr/local/lib/python3.8/site-packages (from itemloaders>=1.0.1->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (0.10.0)
+Requirement already satisfied: six>=1.6.0 in /usr/local/lib/python3.8/site-packages (from parsel>=1.5.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (1.14.0)
+Collecting pyee==12.0.0
+  Downloading pyee-12.0.0-py3-none-any.whl (14 kB)
+Collecting greenlet==3.0.3
+  Downloading greenlet-3.0.3-cp38-cp38-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (622 kB)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.6 in /usr/local/lib/python3.8/site-packages (from pyasn1-modules>=0.2.1->google-auth<3.0dev,>=2.26.1->google-cloud-storage>=2.18.2->-r /app/requirements.txt (line 8)) (0.4.8)
+Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.8/site-packages (from requests->webdriver-manager>=3.5.2->-r /app/requirements.txt (line 3)) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /usr/local/lib/python3.8/site-packages (from requests->webdriver-manager>=3.5.2->-r /app/requirements.txt (line 3)) (1.25.9)
+Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.8/site-packages (from requests->webdriver-manager>=3.5.2->-r /app/requirements.txt (line 3)) (2.9)
+Requirement already satisfied: attrs>=16.0.0 in /usr/local/lib/python3.8/site-packages (from service-identity>=18.1.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (19.3.0)
+Collecting exceptiongroup
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Collecting sortedcontainers
+  Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+Collecting sniffio>=1.3.0
+  Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Collecting outcome
+  Downloading outcome-1.3.0.post0-py2.py3-none-any.whl (10 kB)
+Collecting attrs>=16.0.0
+  Downloading attrs-24.2.0-py3-none-any.whl (63 kB)
+Collecting wsproto>=0.14
+  Downloading wsproto-1.2.0-py3-none-any.whl (24 kB)
+Requirement already satisfied: hyperlink>=17.1.1 in /usr/local/lib/python3.8/site-packages (from Twisted>=18.9.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (19.0.0)
+Requirement already satisfied: constantly>=15.1 in /usr/local/lib/python3.8/site-packages (from Twisted>=18.9.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (15.1.0)
+Requirement already satisfied: incremental>=16.10.1 in /usr/local/lib/python3.8/site-packages (from Twisted>=18.9.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (17.5.0)
+Requirement already satisfied: Automat>=0.3.0 in /usr/local/lib/python3.8/site-packages (from Twisted>=18.9.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (20.2.0)
+Requirement already satisfied: PyHamcrest>=1.9.0 in /usr/local/lib/python3.8/site-packages (from Twisted>=18.9.0->scrapy>=2.5.0->-r /app/requirements.txt (line 1)) (2.0.2)
+Collecting urllib3[socks]<3,>=1.26
+  Downloading urllib3-2.2.2-py3-none-any.whl (121 kB)
+  Downloading urllib3-2.2.1-py3-none-any.whl (121 kB)
+  Downloading urllib3-2.2.0-py3-none-any.whl (120 kB)
+  Downloading urllib3-2.1.0-py3-none-any.whl (104 kB)
+  Downloading urllib3-2.0.7-py3-none-any.whl (124 kB)
+  Downloading urllib3-2.0.6-py3-none-any.whl (123 kB)
+  Downloading urllib3-2.0.5-py3-none-any.whl (123 kB)
+  Downloading urllib3-2.0.4-py3-none-any.whl (123 kB)
+  Downloading urllib3-2.0.3-py3-none-any.whl (123 kB)
+  Downloading urllib3-2.0.2-py3-none-any.whl (123 kB)
+  Downloading urllib3-1.26.20-py2.py3-none-any.whl (144 kB)
+  Downloading urllib3-1.26.19-py2.py3-none-any.whl (143 kB)
+  Downloading urllib3-1.26.18-py2.py3-none-any.whl (143 kB)
+  Downloading urllib3-1.26.17-py2.py3-none-any.whl (143 kB)
+  Downloading urllib3-1.26.16-py2.py3-none-any.whl (143 kB)
+  Downloading urllib3-1.26.15-py2.py3-none-any.whl (140 kB)
+  Downloading urllib3-1.26.14-py2.py3-none-any.whl (140 kB)
+  Downloading urllib3-1.26.13-py2.py3-none-any.whl (140 kB)
+  Downloading urllib3-1.26.12-py2.py3-none-any.whl (140 kB)
+  Downloading urllib3-1.26.11-py2.py3-none-any.whl (139 kB)
+  Downloading urllib3-1.26.10-py2.py3-none-any.whl (139 kB)
+  Downloading urllib3-1.26.9-py2.py3-none-any.whl (138 kB)
+  Downloading urllib3-1.26.8-py2.py3-none-any.whl (138 kB)
+  Downloading urllib3-1.26.7-py2.py3-none-any.whl (138 kB)
+  Downloading urllib3-1.26.6-py2.py3-none-any.whl (138 kB)
+  Downloading urllib3-1.26.5-py2.py3-none-any.whl (138 kB)
+  Downloading urllib3-1.26.4-py2.py3-none-any.whl (153 kB)
+  Downloading urllib3-1.26.3-py2.py3-none-any.whl (137 kB)
+  Downloading urllib3-1.26.2-py2.py3-none-any.whl (136 kB)
+  Downloading urllib3-1.26.1-py2.py3-none-any.whl (136 kB)
+  Downloading urllib3-1.26.0-py2.py3-none-any.whl (136 kB)
+INFO: pip is looking at multiple versions of urllib3 to determine which version is compatible with other requirements. This could take a while.
+Collecting urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1
+  Downloading urllib3-1.25.11-py2.py3-none-any.whl (127 kB)
+  Downloading urllib3-1.25.10-py2.py3-none-any.whl (127 kB)
+  Downloading urllib3-1.25.8-py2.py3-none-any.whl (125 kB)
+  Downloading urllib3-1.25.7-py2.py3-none-any.whl (125 kB)
+  Downloading urllib3-1.25.6-py2.py3-none-any.whl (125 kB)
+  Downloading urllib3-1.25.5-py2.py3-none-any.whl (125 kB)
+  Downloading urllib3-1.25.4-py2.py3-none-any.whl (125 kB)
+INFO: pip is looking at multiple versions of urllib3 to determine which version is compatible with other requirements. This could take a while.
+  Downloading urllib3-1.25.3-py2.py3-none-any.whl (150 kB)
+  Downloading urllib3-1.25.2-py2.py3-none-any.whl (150 kB)
+  Downloading urllib3-1.24.3-py2.py3-none-any.whl (118 kB)
+  Downloading urllib3-1.24.2-py2.py3-none-any.whl (131 kB)
+  Downloading urllib3-1.24.1-py2.py3-none-any.whl (118 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. If you want to abort this run, you can press Ctrl + C to do so. To improve how pip performs, tell us what happened here: https://pip.pypa.io/surveys/backtracking
+  Downloading urllib3-1.24-py2.py3-none-any.whl (117 kB)
+  Downloading urllib3-1.23-py2.py3-none-any.whl (133 kB)
+  Downloading urllib3-1.22-py2.py3-none-any.whl (132 kB)
+  Downloading urllib3-1.21.1-py2.py3-none-any.whl (131 kB)

@@ -1,2 +1,0 @@
-[scrapy]
-settings = hostel_hop_competitor_pricing.settings

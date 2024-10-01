@@ -113,10 +113,22 @@ class HostelSpider(scrapy.Spider):
             ## all room containers have a child div with the class no-last-bb
             room_containers = []
 
-            for container in soup.find_all('div'):
-                if container.find('div', class_='no-last-bb'):
-                    room_containers.append(container)
+            for dorm_container in soup.find_all('div'):
+                if dorm_container.find('div', class_='no-last-bb'):
+                    room_containers.append(dorm_container)
+            
+            ## click on the label with for="radioprivate" to select the private room
 
+            await page.click(selector='label[for="radioprivate"]')
+
+            await page.wait_for_selector('#bookingSearchResult:not(.bookingWait)')
+
+            await page.wait_for_timeout(5000)
+
+            for private_container in soup.find_all('div'):
+                if private_container.find('div', class_='no-last-bb'):
+                    room_containers.append(private_container)
+            
             if not room_containers:
                 ## convert the date to a string
                 print('No rooms found for date:', date_str)
@@ -125,7 +137,7 @@ class HostelSpider(scrapy.Spider):
            
             for room in room_containers:
                 prices = []
-                # Extract room name
+                
                 # Extract room title
                 title_tag = room.find('h4', class_='tx-body cl-text font-weight-600')
                 if title_tag:

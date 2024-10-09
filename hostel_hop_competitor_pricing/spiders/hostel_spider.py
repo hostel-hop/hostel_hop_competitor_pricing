@@ -5,22 +5,28 @@ import json
 import logging
 from bs4 import BeautifulSoup
 
-
+## RUN 
 # scrapy crawl hostel_spider
+
+
+## OUTPUT
+## if saving output to the cloud you need to run this command to authenticate with gcloud
+# gcloud auth application-default login
 class HostelSpider(scrapy.Spider):
     name = 'hostel_spider'
-    custom_settings = {
-        "FEEDS": {
-            "gs://hostel-hop-storage/scraping/competitor-pricings/%(time)s.json": {
-                "format": "json"
-            }
-        },
-    }
+    ## Comment this if you want to get result locally
+    # custom_settings = {
+    #     "FEEDS": {
+    #         "gs://hostel-hop-storage/scraping/competitor-pricings/%(time)s.json": {
+    #             "format": "json"
+    #         }
+    #     },
+    # }
     
     def start_requests(self):
         urls = self.read_urls('matched_urls.txt')
         ## only use first 5 urls
-        urls = urls[:1]
+        urls = urls[:6]
 
         for url in urls:
            yield scrapy.Request(
@@ -56,7 +62,7 @@ class HostelSpider(scrapy.Spider):
         ## remove the time part
         now = datetime.datetime(now.year, now.month, now.day)
         dates = []
-        for i in range(3):
+        for i in range(5):
             date = now + datetime.timedelta(days=i)
             dates.append(date)
 
@@ -115,8 +121,8 @@ class HostelSpider(scrapy.Spider):
 
             for dorm_container in soup.find_all('div'):
                 if dorm_container.find('div', class_='no-last-bb'):
-                    room_containers.append(dorm_container)
-            
+                    room_containers.append({"container": dorm_container, "type": "dorm"})
+                
             ## click on the label with for="radioprivate" to select the private room
 
             await page.click(selector='label[for="radioprivate"]')
@@ -127,7 +133,7 @@ class HostelSpider(scrapy.Spider):
 
             for private_container in soup.find_all('div'):
                 if private_container.find('div', class_='no-last-bb'):
-                    room_containers.append(private_container)
+                    room_containers.append({"container": private_container, "type": "private"})
             
             if not room_containers:
                 ## convert the date to a string
@@ -135,7 +141,8 @@ class HostelSpider(scrapy.Spider):
                 continue
             
            
-            for room in room_containers:
+            for container in room_containers:
+                room = container.get('container')
                 prices = []
                 
                 # Extract room title
@@ -157,6 +164,8 @@ class HostelSpider(scrapy.Spider):
 
                 source_container_anchors = source_container.find_all('a')
 
+                print('Source containers:', source_container_anchors)
+
                 for source_anchor in source_container_anchors:
                     booking_site = source_anchor.get('for')
 
@@ -172,7 +181,8 @@ class HostelSpider(scrapy.Spider):
                         'source': booking_site,
                         'price': price,
                         'currency_symbol': currency_symbol,
-                        'date': date_str
+                        'date': date_str,
+                        'room_type': room.get('type')
                     })
 
                 ## if room already exists, append the price to the room
@@ -189,6 +199,12 @@ class HostelSpider(scrapy.Spider):
                     rooms.append(room)
 
             item['rooms'] = rooms
+        
+        ## click dorm room button
+        await page.click(selector='label[for="radiodorm"]')
+
+        await page.wait_for_selector('#bookingSearchResult:not(.bookingWait)')
+
 
         yield item
     

@@ -14,19 +14,27 @@ from bs4 import BeautifulSoup
 # gcloud auth application-default login
 class HostelSpider(scrapy.Spider):
     name = 'hostel_spider'
-    ## Comment this if you want to get result locally
-    # custom_settings = {
-    #     "FEEDS": {
-    #         "gs://hostel-hop-storage/scraping/competitor-pricings/%(time)s.json": {
-    #             "format": "json"
-    #         }
-    #     },
-    # }
+ 
     
+    def __init__(self, start_date=None, end_date=None, url_count=None, use_google_storage=False, *args, **kwargs):
+        super(HostelSpider, self).__init__(*args, **kwargs)
+        self.start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d') if start_date else None
+        self.end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d') if end_date else None
+        self.url_count = int(url_count) if url_count else None
+        if use_google_storage:
+            self.custom_settings = {
+                "FEEDS": {
+                    "gs://hostel-hop-storage/scraping/competitor-pricings/%(time)s.json": {
+                        "format": "json"
+                    }
+                },
+            }
+   
+
     def start_requests(self):
         urls = self.read_urls('matched_urls.txt')
         ## only use first 5 urls
-        urls = urls[:6]
+        urls = urls[:self.url_count] if self.url_count else urls
 
         for url in urls:
            yield scrapy.Request(
@@ -56,20 +64,17 @@ class HostelSpider(scrapy.Spider):
 
         page = response.meta["playwright_page"]
 
-        ## create list of dates spanning the next 30 days sdtarting from now
-      
-        now = datetime.datetime.now()
-        ## remove the time part
-        now = datetime.datetime(now.year, now.month, now.day)
-        dates = []
-        for i in range(5):
-            date = now + datetime.timedelta(days=i)
-            dates.append(date)
-
+        ## create list of dates based on input date range or default to next 5 days
+        if self.start_date and self.end_date:
+            dates = [self.start_date + datetime.timedelta(days=i) for i in range((self.end_date - self.start_date).days + 1)]
+        else:
+            now = datetime.datetime.now()
+            now = datetime.datetime(now.year, now.month, now.day)
+            dates = [now + datetime.timedelta(days=i) for i in range(5)]
 
         for date in dates:
             date_str = date.strftime('%Y-%m-%d')
-            date_milliseconds = date.timestamp() * 1000
+            date_milliseconds = int(date.timestamp() * 1000)
 
             ## remove any decimal points
             date_milliseconds = int(date_milliseconds)
@@ -164,8 +169,6 @@ class HostelSpider(scrapy.Spider):
 
                 source_container_anchors = source_container.find_all('a')
 
-                print('Source containers:', source_container_anchors)
-
                 for source_anchor in source_container_anchors:
                     booking_site = source_anchor.get('for')
 
@@ -182,7 +185,7 @@ class HostelSpider(scrapy.Spider):
                         'price': price,
                         'currency_symbol': currency_symbol,
                         'date': date_str,
-                        'room_type': room.get('type')
+                        'room_type': container.get('type')
                     })
 
                 ## if room already exists, append the price to the room
@@ -225,4 +228,3 @@ class HostelSpider(scrapy.Spider):
             logging.info(f"Dynamic data: {data}")
         except Exception as e:
             logging.error(f"Failed to retrieve dynamic data from {url}: {e}")
-    

@@ -2,10 +2,6 @@ import xml.etree.ElementTree as ET
 import csv
 from fuzzywuzzy import fuzz
 
-import xml.etree.ElementTree as ET
-import csv
-from fuzzywuzzy import fuzz
-
 # Function to normalize the last part of the URL (replace hyphens with spaces, lowercase, etc.)
 def normalize_url_part(url_part):
     return url_part.lower().replace('-', ' ')

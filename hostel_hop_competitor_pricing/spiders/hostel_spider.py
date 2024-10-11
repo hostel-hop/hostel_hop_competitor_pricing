@@ -3,7 +3,6 @@ import scrapy
 from ..items import HostelItem
 import json
 import logging
-from bs4 import BeautifulSoup
 
 ## RUN 
 # scrapy crawl hostel_spider
@@ -16,15 +15,19 @@ class HostelSpider(scrapy.Spider):
     name = 'hostel_spider'
  
     
-    def __init__(self, start_date=None, end_date=None, url_count=None, use_google_storage=False, debug=False, *args, **kwargs):
+    def __init__(self, bucket_name='hostel-hop-storage', start_date=None, end_date=None, url_count=None, use_google_storage=False, debug=False, *args, **kwargs):
         super(HostelSpider, self).__init__(*args, **kwargs)
+        self.bucket_name = bucket_name
         self.start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d') if start_date else None
         self.end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d') if end_date else None
         self.url_count = int(url_count) if url_count else None
-        if use_google_storage:
+
+        if use_google_storage and self.start_date and self.end_date:
+            ## use start date and end date to create a folder name
+            ## example gs url: gs://hostel-hop-storage/scraping/competitor-pricings/2024_10_11-2024_10_15/
             self.custom_settings = {
                 "FEEDS": {
-                    "gs://hostel-hop-storage/scraping/competitor-pricings/%(time)s.json": {
+                    f"gs://{self.bucket_name}/scraping/competitor-pricings/{self.start_date.strftime('%Y_%m_%d')}-{self.end_date.strftime('%Y_%m_%d')}/": {
                         "format": "json"
                     }
                 },
@@ -33,30 +36,37 @@ class HostelSpider(scrapy.Spider):
    
 
     def start_requests(self):
-        urls = self.read_urls('matched_urls.txt')
+        items = self.read_urls('hostelz_search_results.json')
         ## only use first 5 urls
-        urls = urls[:self.url_count] if self.url_count else urls
+        items = items[:self.url_count] if self.url_count else items
 
-        for url in urls:
-           yield scrapy.Request(
-                url=url,
+       
+
+        for item in items:
+            if item.get('similarity_score', 0) < 70:
+                continue;
+
+            yield scrapy.Request(
+                url=item.get('property_hostelz_url'),
                 callback=self.parse,
                 meta={
                     "playwright": True,
                     "playwright_include_page": True,
-                    "errback": self.errback
+                    "errback": self.errback,
+                    "hostel_hop_property_id": item.get('hostel_hop_property_id')
                 }
             )
     
     def read_urls(self, file_path):
         with open(file_path, 'r') as file:
-            urls = file.read().splitlines()
-        return urls
+            items = json.load(file)
+        return items
     
     async def parse(self, response):
         item = HostelItem()
         item['property_hostelz_url'] = response.url
         item['property_name'] = response.css('h1::text').get().strip()
+        item['hostel_hop_property_id'] = response.meta.get('hostel_hop_property_id')
 
         rooms = []
 
@@ -71,7 +81,6 @@ class HostelSpider(scrapy.Spider):
 
         ## modal open 
         if modal_open:
-            print('-----------skipping dates-----------')
             await page.click('button:has-text("skip dates")');
             await page.wait_for_selector(selector='body:not(.modal-open)')
 
@@ -127,8 +136,12 @@ class HostelSpider(scrapy.Spider):
             room_containers = []
 
             ## ensure requpayload.roomType
-            async with page.expect_response(lambda response: '/listing-booking-search' in response.url and response.status == 200) as dorm_response_info:
-                dorm_response = await dorm_response_info.value
+            ## handle timeout gracefully    
+            try:
+                async with page.expect_response(lambda response: '/listing-booking-search' in response.url and response.status == 200) as dorm_response_info:
+                    dorm_response = await dorm_response_info.value
+            except Exception as e:
+                dorm_response = None
 
             if dorm_response:
                 dorm_json = await dorm_response.json() 
@@ -145,8 +158,12 @@ class HostelSpider(scrapy.Spider):
             await page.click(selector='label[for="hz-switcher-private"]')
 
             ## ensure the response is for the private rooms and not the same as the dorms
-            async with page.expect_response(lambda response: '/listing-booking-search' in response.url and response.status == 200) as private_response_info:
-                private_response = await private_response_info.value
+            ## handle timeout gracefully    
+            try:
+                async with page.expect_response(lambda response: '/listing-booking-search' in response.url and response.status == 200) as private_response_info:
+                    private_response = await private_response_info.value
+            except Exception as e:
+                private_response = None
                
             if private_response:
                 private_json = await private_response.json() 
@@ -194,7 +211,7 @@ class HostelSpider(scrapy.Spider):
                         'source': primary_price.get('otaShortName'),
                         'price': price,
                         'currency_symbol': currency_symbol,
-                        'date': date_str,
+                        
                         'room_type': container.get('type')
                     })
 
@@ -210,7 +227,7 @@ class HostelSpider(scrapy.Spider):
                             'source': price.get('otaShortName'),
                             'price': price_value,
                             'currency_symbol': currency_symbol,
-                            'date': date_str,
+                       
                             'room_type': container.get('type')
                         })
                 ## if room already exists, append the price to the room
@@ -218,17 +235,19 @@ class HostelSpider(scrapy.Spider):
 
                 existing_room = next((r for r in rooms if r['name'] == room_name), None)
                 if existing_room:
-                    existing_room['prices'].extend(prices)
+                    existing_room['prices'][date_str] = prices
                 else:
                     room = {
                         'name': room_name,
-                        'prices': prices,
+                        'prices': {
+                            date_str: prices
+                        },
                     }
                     rooms.append(room)
 
                 
             item['rooms'] = rooms
-
+           
             ## click dorm room button
             await page.click(selector='label[for="hz-switcher-dorm"]')
 

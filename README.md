@@ -14,13 +14,14 @@ The spider accepts three optional arguments:
 2. `end_date`: The end date for the date range to scrape (format: YYYY-MM-DD)
 3. `url_count`: The number of URLs to scrape from the provided list
 4. `use_google_storage`: If set to `True`, the spider will save the output to Google Cloud Storage. If not provided, the spider will save the output to a local file.
+5. `debug`: If set to `True`, the spider will print debug information.
 
 ### Using Arguments
 
 To use these arguments, add them to the command like this:
 
 ```
-scrapy crawl hostel_spider -a start_date=2023-05-01 -a end_date=2023-05-10 -a url_count=10 -a use_google_storage=True
+scrapy crawl hostel_spider -a start_date=2023-05-01 -a end_date=2023-05-10 -a url_count=10 -a use_google_storage=True -a debug=True
 ```
 
 Replace `YYYY-MM-DD` with the desired dates and `N` with the number of URLs you want to scrape.
@@ -64,6 +65,12 @@ This argument specifies whether the spider should save the output to Google Clou
   scrapy crawl hostel_spider -a use_google_storage=True
   ```
 
+### 4. debug
+
+This argument specifies whether the spider should print debug information.
+
+- **Default**: If not provided, the spider will not print debug information.
+
 ## Combining Arguments
 
 You can combine all arguments as needed:
@@ -88,6 +95,7 @@ This will run the spider with default settings. The default settings are:
 - End date: None
 - URL count: None (scrapes all URLs in the list)
 - Use Google Storage: False
+- Debug: False
 
 ## Output
 

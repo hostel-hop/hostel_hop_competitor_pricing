@@ -16,7 +16,7 @@ class HostelSpider(scrapy.Spider):
     name = 'hostel_spider'
  
     
-    def __init__(self, start_date=None, end_date=None, url_count=None, use_google_storage=False, *args, **kwargs):
+    def __init__(self, start_date=None, end_date=None, url_count=None, use_google_storage=False, debug=False, *args, **kwargs):
         super(HostelSpider, self).__init__(*args, **kwargs)
         self.start_date = datetime.datetime.strptime(start_date, '%Y-%m-%d') if start_date else None
         self.end_date = datetime.datetime.strptime(end_date, '%Y-%m-%d') if end_date else None
@@ -29,6 +29,7 @@ class HostelSpider(scrapy.Spider):
                     }
                 },
             }
+        self.debug = debug
    
 
     def start_requests(self):
@@ -64,6 +65,16 @@ class HostelSpider(scrapy.Spider):
 
         page = response.meta["playwright_page"]
 
+        ## if a button with  skip dates  is present, click on it
+
+        modal_open = await page.wait_for_selector(selector='body.modal-open')
+
+        ## modal open 
+        if modal_open:
+            print('-----------skipping dates-----------')
+            await page.click('button:has-text("skip dates")');
+            await page.wait_for_selector(selector='body:not(.modal-open)')
+
         ## create list of dates based on input date range or default to next 5 days
         if self.start_date and self.end_date:
             dates = [self.start_date + datetime.timedelta(days=i) for i in range((self.end_date - self.start_date).days + 1)]
@@ -78,8 +89,10 @@ class HostelSpider(scrapy.Spider):
 
             ## remove any decimal points
             date_milliseconds = int(date_milliseconds)
-            ## click on the date picker
-            await page.click(selector='#searchDateContent')
+
+            ## class="compare-prices-tab"
+            await page.click(selector='.compare-prices-tab')
+
 
             ## click on the the current date as first and next date as second
             ## the first date will be the current date
@@ -95,105 +108,117 @@ class HostelSpider(scrapy.Spider):
             ## a time attribute with the value of the date in milliseconds
 
              # Locate the elements that match the selector
-            await page.click(selector=f'#searchDateModal .modal-content [time="{date_milliseconds}"][class~="toMonth"]')
+             ## id="2024-10-11"
+             ## class="dp__calendar_item"
 
-             ## click on the second date
-            await page.click(selector=f'#searchDateModal .modal-content [time="{date_milliseconds + 86400000}"][class~="toMonth"]')
+            ## click class="compare-prices-tab-control-panel-text tx-small"
+            await page.click(selector='.compare-prices-tab-control-panel-text.tx-small')
 
-            await page.wait_for_selector(selector='body.hostel-page:not(.modal-open)')
+            next_date = (date + datetime.timedelta(days=1)).strftime('%Y-%m-%d')
 
-            ## wait for the page to load
-            await page.wait_for_selector('#bookingSearchResult')
+            await page.click(f'[id="{date_str}"]')
 
-            booking_search_result = response.css('#bookingSearchResult')
+            await page.click(f'[id="{next_date}"]')
 
-            if not booking_search_result:
-                logging.error('Could not find booking search result for date:', date_str)
-                continue
+            await page.wait_for_selector(selector='body:not(.modal-open)')
 
-            ## wait for the booking search result to load, ensure that it does not have a class
-            await page.wait_for_selector('#bookingSearchResult:not(.bookingWait)')
-
-            await page.wait_for_timeout(5000)
-
-            ## extract the html content of the booking search result
-            html_content = await page.content()
-
-            soup = BeautifulSoup(html_content, 'html.parser')
-            
-            ## all room containers have a child div with the class no-last-bb
+            ## wait for https://www.hostelz.com/listing-booking-search/226874 to load
+            ##async with page.expect_response(lambda response: response.url == "https://example.com" and response.status == 200 and response.request.method == "get") as response_info:
             room_containers = []
 
-            for dorm_container in soup.find_all('div'):
-                if dorm_container.find('div', class_='no-last-bb'):
-                    room_containers.append({"container": dorm_container, "type": "dorm"})
-                
-            ## click on the label with for="radioprivate" to select the private room
+            ## ensure requpayload.roomType
+            async with page.expect_response(lambda response: '/listing-booking-search' in response.url and response.status == 200) as dorm_response_info:
+                dorm_response = await dorm_response_info.value
 
-            await page.click(selector='label[for="radioprivate"]')
+            if dorm_response:
+                dorm_json = await dorm_response.json() 
 
-            await page.wait_for_selector('#bookingSearchResult:not(.bookingWait)')
+            if self.debug:
+                print('dorm_json', dorm_json)   
 
-            await page.wait_for_timeout(5000)
+            if dorm_json:
+                for room in dorm_json:
+                    if room.get('primary').get('roomType') == 'dorm':
+                        room_containers.append({"container": room, "type": "dorm"})
 
-            for private_container in soup.find_all('div'):
-                if private_container.find('div', class_='no-last-bb'):
-                    room_containers.append({"container": private_container, "type": "private"})
+             ## click on the label with for="hz-switcher-private" to select the private room
+            await page.click(selector='label[for="hz-switcher-private"]')
+
+            ## ensure the response is for the private rooms and not the same as the dorms
+            async with page.expect_response(lambda response: '/listing-booking-search' in response.url and response.status == 200) as private_response_info:
+                private_response = await private_response_info.value
+               
+            if private_response:
+                private_json = await private_response.json() 
+
+            if self.debug:
+                print('private_json', private_json)
+
+            if private_json:
+                for room in private_json:
+                    if room.get('primary').get('roomType') == 'private':
+                        room_containers.append({"container": room, "type": "private"})
+
             
             if not room_containers:
                 ## convert the date to a string
                 print('No rooms found for date:', date_str)
                 continue
             
+
+            if self.debug:
+                print('room_containers', room_containers)
            
             for container in room_containers:
                 room = container.get('container')
                 prices = []
                 
                 # Extract room title
-                title_tag = room.find('h4', class_='tx-body cl-text font-weight-600')
-                if title_tag:
-                    room_name = title_tag.text.strip()
-                else:
-                    print('No room name found')
-                    continue
+                room_name = room.get('title')
+                if self.debug:
+                    print('Room:', room_name)
+                
+                ## get primary and other prices
 
-                print('Room:', room_name)
+                primary_price = room.get('primary')
+                other_prices = room.get('otherPrices')
 
-               ## source_container = room.css('div.no-last-bb')
-                source_container = room.find('div', class_='no-last-bb')
+                if primary_price:
 
-                if not source_container:
-                    print('No sources found for room:', room_name)
-                    continue
-
-                source_container_anchors = source_container.find_all('a')
-
-                for source_anchor in source_container_anchors:
-                    booking_site = source_anchor.get('for')
-
-                    price = source_anchor.find('span', class_='cl-text font-weight-600').text
-                    price = price.strip() if price else 'Price not available'
-
-                    ## extract currency (should be first element of the price)
-                    ## example $10.00
+                    ## extract price and currency symbol
+                    price = primary_price.get('averagePricePerBlockPerNight')
                     currency_symbol = price[0]
                     price = price[1:]
-
+                    
                     prices.append({
-                        'source': booking_site,
+                        'source': primary_price.get('otaShortName'),
                         'price': price,
                         'currency_symbol': currency_symbol,
                         'date': date_str,
                         'room_type': container.get('type')
                     })
 
+                if other_prices:
+                    
+                    for price in other_prices:
+                        ## extract price and currency symbol
+                        price_value = price.get('averagePricePerBlockPerNight')
+                        currency_symbol = price_value[0]
+                        price_value = price_value[1:]
+
+                        prices.append({
+                            'source': price.get('otaShortName'),
+                            'price': price_value,
+                            'currency_symbol': currency_symbol,
+                            'date': date_str,
+                            'room_type': container.get('type')
+                        })
                 ## if room already exists, append the price to the room
                 ## otherwise create a new room
 
                 existing_room = next((r for r in rooms if r['name'] == room_name), None)
                 if existing_room:
-                    existing_room['prices'].append(prices)
+                    existing_room['prices'].extend(prices)
                 else:
                     room = {
                         'name': room_name,
@@ -201,12 +226,11 @@ class HostelSpider(scrapy.Spider):
                     }
                     rooms.append(room)
 
+                
             item['rooms'] = rooms
-        
-        ## click dorm room button
-        await page.click(selector='label[for="radiodorm"]')
 
-        await page.wait_for_selector('#bookingSearchResult:not(.bookingWait)')
+            ## click dorm room button
+            await page.click(selector='label[for="hz-switcher-dorm"]')
 
 
         yield item
